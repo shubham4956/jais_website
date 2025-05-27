@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Moon, Sun, Menu, X } from "lucide-react";
+import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Moon, Sun, Menu, X, GraduationCap, Award } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 
 const Portfolio = () => {
@@ -46,31 +46,31 @@ const Portfolio = () => {
     setFormData({ name: "", email: "", message: "" });
   };
 
-  const skills = [
-    "Python", "Java", "C++", "SQL", "Android Studio", "Kotlin", 
-    "React", "HTML5", "VS Code", "Firebase", "Jetpack Compose", 
-    "Firebase Auth", "SMOTE", "Logistic Regression", "Canva", 
-    "UI/UX", "Analytical Thinking"
-  ];
+  const skills = {
+    "Languages": ["Python", "Java", "C++", "SQL"],
+    "Technologies/Tools": ["Android Studio", "Kotlin", "React", "HTML5", "VS Code", "Firebase"],
+    "Libraries/Concepts": ["Jetpack Compose", "Firebase Auth", "SMOTE", "Logistic Regression"],
+    "Other": ["Canva", "UI/UX", "Analytical Thinking"]
+  };
 
   const projects = [
     {
       title: "Depression Detection",
-      tech: "Python, Machine Learning",
+      tech: ["Python", "Machine Learning"],
       description: "Used logistic regression with SMOTE to balance data and improve recall for mental health prediction.",
       github: "https://github.com/shubham4956/depression-prediction-model",
       live: null
     },
     {
       title: "Mental Health Companion",
-      tech: "kvlang, Python",
+      tech: ["kvlang", "Python", "Firebase"],
       description: "Web app for scheduling mental health interviews with admin panel and real-time availability tracking.",
-      github: null,
+      github: "https://github.com/shubham4956/jais55.git",
       live: null
     },
     {
       title: "Portfolio Website",
-      tech: "React, TailwindCSS",
+      tech: ["React", "TailwindCSS", "Vercel"],
       description: "Modern, responsive portfolio website built with React and TailwindCSS, hosted on Vercel.",
       github: "https://github.com/shubham4956/jais55.git",
       live: "https://my-portfolio-site-lac-one.vercel.app/"
@@ -83,7 +83,7 @@ const Portfolio = () => {
       role: "Android Developer Intern",
       duration: "Oct 2024 – Mar 2025",
       location: "AWS AI-ML",
-      description: "Built Android apps, integrated Firebase, contributed to production-ready solutions."
+      description: "Built Android apps, integrated Firebase, and contributed to production-ready solutions."
     },
     {
       company: "REMARKSKILL EDUCATION – IIT Hyderabad",
@@ -95,20 +95,40 @@ const Portfolio = () => {
   ];
 
   const certifications = [
-    "AWS AI-ML – FedKIIT",
-    "Data Science, ML, NLP Bootcamp – Udemy",
-    "Google Prompting Essentials – Coursera",
-    "Ethical Decision Making – Coursera"
+    {
+      title: "AWS AI-ML",
+      issuer: "FedKIIT",
+      icon: "🏆"
+    },
+    {
+      title: "Data Science, ML, NLP Bootcamp",
+      issuer: "Udemy",
+      icon: "📊"
+    },
+    {
+      title: "Google Prompting Essentials",
+      issuer: "Coursera",
+      icon: "🤖"
+    },
+    {
+      title: "Ethical Decision Making",
+      issuer: "Coursera",
+      icon: "⚖️"
+    }
   ];
 
   const extracurriculars = [
     {
-      title: "Kalakar Society – Actor",
-      description: "Participated in theatre events and organized creative workshops."
+      title: "Kalakar Society",
+      role: "Actor",
+      description: "Participated in theatre events and organized creative workshops.",
+      icon: "🎭"
     },
     {
-      title: "Animal Welfare Society – Volunteer",
-      description: "Helped care for rescued animals and raised awareness for welfare."
+      title: "Animal Welfare Society",
+      role: "Volunteer",
+      description: "Helped care for rescued animals and raised awareness for welfare.",
+      icon: "🐾"
     }
   ];
 
@@ -326,15 +346,22 @@ const Portfolio = () => {
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">Skills</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 rounded-full text-sm font-medium hover:bg-pink-200 dark:hover:bg-pink-900/50 transition-colors"
-                  >
-                    {skill}
-                  </span>
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">Skills Snapshot</h3>
+              <div className="grid gap-4">
+                {Object.entries(skills).map(([category, skillList]) => (
+                  <Card key={category} className="p-6 hover:shadow-lg transition-shadow dark:bg-gray-700 dark:shadow-gray-900/20">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-3">{category}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {skillList.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 rounded-full text-sm font-medium hover:bg-pink-200 dark:hover:bg-pink-900/50 transition-colors"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </Card>
                 ))}
               </div>
             </div>
@@ -367,7 +394,7 @@ const Portfolio = () => {
                   </p>
                   
                   <div className="flex flex-wrap gap-2">
-                    {project.tech.split(", ").map((tech) => (
+                    {project.tech.map((tech) => (
                       <span
                         key={tech}
                         className="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md text-xs font-medium"
@@ -460,7 +487,7 @@ const Portfolio = () => {
               <CardHeader className="pb-4">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-pink-100 dark:bg-pink-900/30 rounded-lg flex items-center justify-center">
-                    <div className="text-pink-600 dark:text-pink-400 text-2xl">🎓</div>
+                    <GraduationCap className="text-pink-600 dark:text-pink-400" size={24} />
                   </div>
                   <div className="flex-1">
                     <CardTitle className="text-xl font-bold text-gray-900 dark:text-white">
@@ -502,9 +529,9 @@ const Portfolio = () => {
             {certifications.map((cert, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow border-0 shadow-md dark:bg-gray-700 dark:shadow-gray-900/20">
                 <CardContent className="p-6">
-                  <div className="text-4xl mb-4">🏆</div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{cert.split(' – ')[0]}</h3>
-                  <p className="text-pink-600 dark:text-pink-400 font-medium">{cert.split(' – ')[1]}</p>
+                  <div className="text-4xl mb-4">{cert.icon}</div>
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{cert.title}</h3>
+                  <p className="text-pink-600 dark:text-pink-400 font-medium">{cert.issuer}</p>
                 </CardContent>
               </Card>
             ))}
@@ -525,12 +552,12 @@ const Portfolio = () => {
               <Card key={index} className="hover:shadow-lg transition-shadow border-0 shadow-md dark:bg-gray-700 dark:shadow-gray-900/20">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-4">
-                    <div className="text-4xl">{index === 0 ? "🎭" : "🐾"}</div>
+                    <div className="text-4xl">{activity.icon}</div>
                     <div>
                       <CardTitle className="text-xl font-bold text-gray-900 dark:text-white">
-                        {activity.title.split(' – ')[0]}
+                        {activity.title}
                       </CardTitle>
-                      <p className="text-pink-600 dark:text-pink-400 font-semibold">{activity.title.split(' – ')[1]}</p>
+                      <p className="text-pink-600 dark:text-pink-400 font-semibold">{activity.role}</p>
                     </div>
                   </div>
                 </CardHeader>
