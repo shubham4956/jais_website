@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/7442bec7-b480-43cd-ae05-80647dba817a
+**URL**: https://preview--lovable-ai-wellbeing-hub.lovable.app/
 
 ## How can I edit this code?
 
@@ -62,7 +62,7 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/7442bec7-b480-43cd-ae05-80647dba817a) and click on Share -> Publish.
+Simply open [Lovable](https://preview--lovable-ai-wellbeing-hub.lovable.app/) .
 
 ## Can I connect a custom domain to my Lovable project?
 
