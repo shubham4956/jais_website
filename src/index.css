@@ -14,8 +14,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 142 71% 45%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -31,16 +31,9 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 142 71% 45%;
+    --ring: 217 91% 60%;
 
     --radius: 0.75rem;
-
-    /* Custom wellness colors */
-    --sage: 142 71% 45%;
-    --lavender: 268 83% 58%;
-    --calm-blue: 220 100% 95%;
-    --soft-purple: 268 83% 95%;
-    --warm-green: 142 71% 95%;
   }
 
   .dark {
@@ -50,7 +43,7 @@
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 142 71% 45%;
+    --primary: 217 91% 60%;
     --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -62,7 +55,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 142 71% 45%;
+    --ring: 217 91% 60%;
   }
 }
 
@@ -75,21 +68,25 @@
     @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer utilities {
-  .gradient-sage {
-    background: linear-gradient(135deg, hsl(var(--sage)) 0%, hsl(var(--lavender)) 100%);
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
   }
-  
-  .gradient-calm {
-    background: linear-gradient(135deg, hsl(var(--calm-blue)) 0%, hsl(var(--soft-purple)) 100%);
-  }
-  
-  .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--sage)) 0%, hsl(var(--lavender)) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
