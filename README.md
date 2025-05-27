@@ -10,7 +10,7 @@ There are several ways of editing your application.
 
 **Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7442bec7-b480-43cd-ae05-80647dba817a) and start prompting.
+Simply visit the [Lovable Project]((https://preview--lovable-ai-wellbeing-hub.lovable.app/)) and start prompting.
 
 Changes made via Lovable will be committed automatically to this repo.
 
